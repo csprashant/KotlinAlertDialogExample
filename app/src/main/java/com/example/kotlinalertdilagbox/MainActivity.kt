@@ -12,12 +12,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 
 class MainActivity : AppCompatActivity() {
-    lateinit var iv:ImageView
     lateinit var btn:Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        iv=findViewById(R.id.imageView)
         btn=findViewById(R.id.button)
         btn.setOnClickListener { getDialogBox(it) }
 
@@ -25,8 +23,8 @@ class MainActivity : AppCompatActivity() {
     fun getDialogBox(view: View){
         val li=LayoutInflater.from(this)
         val view=li.inflate(R.layout.dialogbox,null)
-        val tbtn:Button =findViewById(R.id.coffie)
-        val cbtn:Button=findViewById(R.id.tea)
+        val tbtn:Button =view.findViewById(R.id.coffie)
+        val cbtn:Button=view.findViewById(R.id.tea)
         tbtn.setOnClickListener { Toast.makeText(this,"Tea is coming...",Toast.LENGTH_SHORT).show() }
         cbtn.setOnClickListener { Toast.makeText(this,"coffie is coming...",Toast.LENGTH_SHORT).show() }
         AlertDialog.Builder(this).setView(view).create().show()
